@@ -6,16 +6,28 @@
 			function move(s){
 				alert(s);
 			}
-			function startGame(){
+			function putValue(element,x){
+				element.classList.remove("emptyCell");
+				element.classList.add("Cell");
+				element.classList.add("color"+x+"");
+				element.innerHTML = x; 
+			}
+			function initGame(){
 				var row, col, cell;
 				row = Math.floor((Math.random() * 4) + 1);
 				col = Math.floor((Math.random() * 4) + 1);
 				cell = "c"+row+col;
-				var element = document.getElementById(cell);
-				element.classList.remove("emptyCell");
-				element.classList.add("Cell");
-				element.classList.add("color2");
-				element.innerHTML = "2";
+
+				return cell;
+			}
+			function startGame(){
+				var cell, element;
+				
+				cell = initGame();
+				element = document.getElementById(cell);
+				putValue(element,2);
+				
+				
 			}
 		</script>
 	</head>
