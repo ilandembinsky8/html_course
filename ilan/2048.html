@@ -3,8 +3,25 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="styles.css" />
 		<script>
+			var cell;
 			function move(s){
-				alert(s);
+				if (s=="left"){
+					element = document.getElementById(cell);
+					clearValue(element);
+					// "c32" 3=>charAt(1), 2=>charAt(2) 
+					// "c41" 4=>charAt(1), 1=>charAt(2) 
+					x=parseInt(cell.charAt(2));
+					y=parseInt(cell.charAt(1));
+					element = document.getElementById("c"+y+"1");
+					putValue(element,2);
+				}
+				else
+					alert("no yet");
+			}
+			function clearValue(element){
+				element.className = "";
+				element.classList.add("emptyCell");
+				element.innerHTML = ""; 
 			}
 			function putValue(element,x){
 				element.classList.remove("emptyCell");
@@ -13,7 +30,7 @@
 				element.innerHTML = x; 
 			}
 			function initGame(){
-				var row, col, cell;
+				var row, col;
 				row = Math.floor((Math.random() * 4) + 1);
 				col = Math.floor((Math.random() * 4) + 1);
 				cell = "c"+row+col;
@@ -21,7 +38,7 @@
 				return cell;
 			}
 			function startGame(){
-				var cell, element;
+				var element;
 				
 				cell = initGame();
 				element = document.getElementById(cell);
