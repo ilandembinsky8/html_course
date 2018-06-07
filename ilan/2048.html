@@ -6,9 +6,20 @@
 			function move(s){
 				alert(s);
 			}
+			function startGame(){
+				var row, col, cell;
+				row = Math.floor((Math.random() * 4) + 1);
+				col = Math.floor((Math.random() * 4) + 1);
+				cell = "c"+row+col;
+				var element = document.getElementById(cell);
+				element.classList.remove("emptyCell");
+				element.classList.add("Cell");
+				element.classList.add("color2");
+				element.innerHTML = "2";
+			}
 		</script>
 	</head>
-    <body>
+    <body onload="startGame()">
 		<div class="container">
 			<div class="frame">
 				<div class="emptyCell" id="c11"></div>
