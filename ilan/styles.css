@@ -4,6 +4,10 @@ body{
 	font-family:tahoma;
 }
 
+img{
+	width:100%
+}
+
 .container{
 	float:left;
 	width:100%;
@@ -26,6 +30,23 @@ body{
 	height:45px;
 	background-color:#CFC1B8
 }
+
+.Cell{
+	float:left;
+	margin-left:8px;
+	margin-top:8px;
+	width:45px;
+	height:45px;
+	text-align:center;
+	font-size:34px;
+	box-sizing:border-box;
+	padding-top:2px;
+	font-weight:bold;
+}
+
+.color2{background-color:#EAE0D6;}
+
+.color4{background-color:#E8DCC8;}
 
 .arrowsFrame{
 	margin:0px auto;
