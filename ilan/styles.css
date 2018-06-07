@@ -26,3 +26,18 @@ body{
 	height:45px;
 	background-color:#CFC1B8
 }
+
+.arrowsFrame{
+	margin:0px auto;
+	width:220px;
+	height:220px
+}
+
+.arrowCell{
+	float:left;
+	width:33.3%;
+	height:33.3%
+}
+
+
+
