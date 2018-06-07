@@ -13,10 +13,43 @@
 					x=parseInt(cell.charAt(2));
 					y=parseInt(cell.charAt(1));
 					element = document.getElementById("c"+y+"1");
+					cell = "c"+y+"1"
 					putValue(element,2);
 				}
-				else
-					alert("no yet");
+				if (s=="right"){
+					element = document.getElementById(cell);
+					clearValue(element);
+					// "c32" 3=>charAt(1), 2=>charAt(2) 
+					// "c41" 4=>charAt(1), 1=>charAt(2) 
+					x=parseInt(cell.charAt(2));
+					y=parseInt(cell.charAt(1));
+					element = document.getElementById("c"+y+"4");
+					cell = "c"+y+"4"
+					putValue(element,2);
+				}
+				if (s=="up"){
+					element = document.getElementById(cell);
+					clearValue(element);
+					// "c32" 3=>charAt(1), 2=>charAt(2) 
+					// "c41" 4=>charAt(1), 1=>charAt(2) 
+					x=parseInt(cell.charAt(2));
+					y=parseInt(cell.charAt(1));
+					element = document.getElementById("c1"+x);
+					cell = "c1"+x
+					putValue(element,2);
+				}
+				if (s=="down"){
+					element = document.getElementById(cell);
+					clearValue(element);
+					// "c32" 3=>charAt(1), 2=>charAt(2) 
+					// "c41" 4=>charAt(1), 1=>charAt(2) 
+					x=parseInt(cell.charAt(2));
+					y=parseInt(cell.charAt(1));
+					element = document.getElementById("c4"+x);
+					cell = "c4"+x
+					putValue(element,2);
+				}
+				
 			}
 			function clearValue(element){
 				element.className = "";
