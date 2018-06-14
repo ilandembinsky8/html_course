@@ -8,13 +8,42 @@
 			function move(s){
 				switch(s){
 					case "left":
+						for (i=0;i<4;i++)
+							for (j=0;j<4;j++){
+								if (t[i][j]!=0 && j!=0){
+									t[i][0]=t[i][j];
+									t[i][j]=0;
+								}
+							}
 						break;
 					case "right":
+						for (i=0;i<4;i++)
+							for (j=0;j<4;j++){
+								if (t[i][j]!=0 && j!=3){
+									t[i][3]=t[i][j];
+									t[i][j]=0;
+								}
+							}
 						break;
 					case "up":
+						for (i=0;i<4;i++)
+							for (j=0;j<4;j++){
+								if (t[i][j]!=0 && i!=0){
+									t[0][j]=t[i][j];
+									t[i][j]=0;
+								}
+							}
 						break;
 					case "down":
+						for (i=0;i<4;i++)
+							for (j=0;j<4;j++){
+								if (t[i][j]!=0 && i!=3){
+									t[3][j]=t[i][j];
+									t[i][j]=0;
+								}
+							}
 				}
+				paintBoard();
 			}
 			function oneValue(cell,x){
 				element = document.getElementById(cell);
@@ -54,9 +83,13 @@
 				  }
 				}
 				
-				for (i=0;i<2;i++){
+				for (i=0;i<1;i++){
 					row = Math.floor((Math.random() * 4));
 					col = Math.floor((Math.random() * 4));
+					while (t[row][col]!=0){
+						row = Math.floor((Math.random() * 4));
+						col = Math.floor((Math.random() * 4));
+					}
 					t[row][col]=2;
 				}
 				
