@@ -16,7 +16,8 @@
 					case "down":
 				}
 			}
-			function oneValue(element,x){
+			function oneValue(cell,x){
+				element = document.getElementById(cell);
 				if (x==0){
 					element.className = "";
 					element.classList.add("emptyCell");
@@ -35,28 +36,37 @@
 				t[y1][x1] = x;
 				console.log(t);
 			}
+			function paintBoard(){
+				for (i=0;i<4;i++)
+					for(j=0;j<4;j++){
+						cell="c"+(i+1)+""+(j+1);
+						oneValue(cell,t[i][j]);
+					}
+						
+			}
 			function initGame(){
+				var i,j;
 				t = new Array(4);
-				for (var i = 0; i < 4; i++) {
+				for (i = 0; i < 4; i++) {
 				  t[i] = new Array(4);
-				  for (var j=0;j<4;j++){
+				  for (j=0;j<4;j++){
 					t[i][j] = 0;
 				  }
 				}
 				
-				row = Math.floor((Math.random() * 4));
-				col = Math.floor((Math.random() * 4));
-				t[row][col]=2;
+				for (i=0;i<2;i++){
+					row = Math.floor((Math.random() * 4));
+					col = Math.floor((Math.random() * 4));
+					t[row][col]=2;
+				}
 				
-				cell = "c"+(row+1)+""+(col+1);
-				x = document.getElementById(cell);
-				oneValue(x,2);
-				
+				paintBoard();
 			}
 			function startGame(){
 				var element;
-				cell = initGame();
+				initGame();
 				element = document.getElementById(cell);
+				console.log(element);
 			}
 		</script>
 	</head>
