@@ -5,50 +5,28 @@
 		<script>
 			var cell;
 			function move(s){
-				if (s=="left"){
-					element = document.getElementById(cell);
-					clearValue(element);
-					// "c32" 3=>charAt(1), 2=>charAt(2) 
-					// "c41" 4=>charAt(1), 1=>charAt(2) 
-					x=parseInt(cell.charAt(2));
-					y=parseInt(cell.charAt(1));
-					element = document.getElementById("c"+y+"1");
-					cell = "c"+y+"1"
-					putValue(element,2);
+				element = document.getElementById(cell);
+				clearValue(element);
+				x=parseInt(cell.charAt(2));
+				y=parseInt(cell.charAt(1));
+				switch(s){
+					case "left":
+						element = document.getElementById("c"+y+"1");
+						cell = "c"+y+"1";
+						break;
+					case "right":
+						element = document.getElementById("c"+y+"4");
+						cell = "c"+y+"4";
+						break;
+					case "up":
+						element = document.getElementById("c1"+x);
+						cell = "c1"+x;
+						break;
+					case "down":
+						element = document.getElementById("c4"+x);
+						cell = "c4"+x;
 				}
-				if (s=="right"){
-					element = document.getElementById(cell);
-					clearValue(element);
-					// "c32" 3=>charAt(1), 2=>charAt(2) 
-					// "c41" 4=>charAt(1), 1=>charAt(2) 
-					x=parseInt(cell.charAt(2));
-					y=parseInt(cell.charAt(1));
-					element = document.getElementById("c"+y+"4");
-					cell = "c"+y+"4"
-					putValue(element,2);
-				}
-				if (s=="up"){
-					element = document.getElementById(cell);
-					clearValue(element);
-					// "c32" 3=>charAt(1), 2=>charAt(2) 
-					// "c41" 4=>charAt(1), 1=>charAt(2) 
-					x=parseInt(cell.charAt(2));
-					y=parseInt(cell.charAt(1));
-					element = document.getElementById("c1"+x);
-					cell = "c1"+x
-					putValue(element,2);
-				}
-				if (s=="down"){
-					element = document.getElementById(cell);
-					clearValue(element);
-					// "c32" 3=>charAt(1), 2=>charAt(2) 
-					// "c41" 4=>charAt(1), 1=>charAt(2) 
-					x=parseInt(cell.charAt(2));
-					y=parseInt(cell.charAt(1));
-					element = document.getElementById("c4"+x);
-					cell = "c4"+x
-					putValue(element,2);
-				}
+				putValue(element,2);
 				
 			}
 			function clearValue(element){
@@ -72,6 +50,15 @@
 			}
 			function startGame(){
 				var element;
+				
+				var t = new Array(4);
+				for (var i = 0; i < 4; i++) {
+				  t[i] = new Array(4);
+				  for (var j=0;j<4;j++){
+					t[i][j] = 0;
+				  }
+				}
+				console.log(t);
 				
 				cell = initGame();
 				element = document.getElementById(cell);
