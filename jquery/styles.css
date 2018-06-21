@@ -1,0 +1,11 @@
+body{
+	margin:0px;
+	padding:0px;
+	font-family:tahoma;
+}
+
+.oneDiv{
+	float:left;
+	width:33.33%;
+	height:200px;
+}

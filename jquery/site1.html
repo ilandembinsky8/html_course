@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#h").click(function(){
+					$("p:first").hide();
+				});
+				$("#s").click(function(){
+					$("p").show();
+				});
+				$("#t").click(function(){
+					$("p").toggle();
+				});
+			});
+		</script>
+	</head>
+    <body>
+		<p>
+		Hi. I am a paragrah!!!
+		</p>
+		<p>
+		Hi. I am a paragrah too!!!
+		</p>
+		<button id="h">Hide</button>
+		<button id="s">Show</button>
+		<button id="t">Toggle</button>
+    </body>
+</html>
