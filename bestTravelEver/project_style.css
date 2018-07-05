@@ -1,0 +1,31 @@
+.topMenu{
+float: left;
+width:100%;
+height: 50px;
+}
+.oneButton {
+float:left;
+width: 18%;
+height: 35px;
+margin-top: 10px;
+background-color:#800000;
+cursor:pointer;
+color: white;
+text-align:center;
+padding-top:2px;
+font-size:24px;
+box-sizing:border-box;
+border: 1px solid white;
+	border-collapse: collapse;
+	border-spacing:10px;
+	border-color: white;
+	margin-bottom: 10px;
+	
+	
+}
+.input-group{
+float:left;
+width: 28%;
+margin-top: 10px;
+	
+}
