@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+});
+</script>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script>
+	var seconds=0;
+	var minutes=0;
+	function clockFunction(){
+		seconds=seconds+1;
+		if (seconds==60){
+			seconds = 0;
+			minutes++;
+		}
+		if (seconds<10)
+			s_seconds = "0"+seconds;
+		else
+			s_seconds = seconds;
+		if (minutes<10)
+			s_minutes = "0"+minutes;
+		else
+			s_minutes = minutes;
+			
+		document.getElementById("clock").innerHTML = s_minutes+":"+s_seconds;
+	}
+	function startFunction(){
+		setInterval(clockFunction,1000);
+	}
+</script>
+</head>
+<body onload="startFunction()">
+	<div id="clock" style="position:fixed;top:0px;left:0px;width:100px;height:40px;background-color:#EAEAEA"></div>
+</body>
+</html>

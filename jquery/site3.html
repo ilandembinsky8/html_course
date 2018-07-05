@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function(){
+					$("#menu").click(function(){
+						$("#items").slideToggle();
+					});
+			});
+		</script>
+	</head>
+    <body>
+		<div id="menu" style="float:left;width:100%;height:50px;background-color:#aaaaaa"></div>
+		<div id="items" style="float:left;width:100%;height:250px;background-color:#666666;display:none"></div>
+    </body>
+</html>
