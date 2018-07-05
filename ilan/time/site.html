@@ -11,11 +11,18 @@ $(document).ready(function(){
 <script>
 	var seconds=0;
 	var minutes=0;
+	var hours=0;
+	var d;
+	
 	function clockFunction(){
 		seconds=seconds+1;
 		if (seconds==60){
 			seconds = 0;
 			minutes++;
+			if (minutes==60){
+				minutes=0;
+				hours++;
+			}
 		}
 		if (seconds<10)
 			s_seconds = "0"+seconds;
@@ -25,15 +32,24 @@ $(document).ready(function(){
 			s_minutes = "0"+minutes;
 		else
 			s_minutes = minutes;
+		if (hours<10)
+			s_hours = "0"+hours;
+		else
+			s_hours = hours;
 			
-		document.getElementById("clock").innerHTML = s_minutes+":"+s_seconds;
+		document.getElementById("clock").innerHTML = s_hours+":"+s_minutes+":"+s_seconds;
 	}
 	function startFunction(){
+		d = new Date();
+		console.log(d);
+		seconds = d.getSeconds();
+		minutes = d.getMinutes();
+		hours = d.getHours();
 		setInterval(clockFunction,1000);
 	}
 </script>
 </head>
 <body onload="startFunction()">
-	<div id="clock" style="position:fixed;top:0px;left:0px;width:100px;height:40px;background-color:#EAEAEA"></div>
+	<div id="clock" style="position:fixed;top:0px;left:0px;width:100px;height:40px;background-color:#EAEAEA;text-align:center;box-sizing:border-box;padding-top:5px;font-size:24px"></div>
 </body>
 </html>
