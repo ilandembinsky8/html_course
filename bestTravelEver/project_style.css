@@ -1,25 +1,33 @@
+body{
+	background-image: url("BackgroundStar.jpg") ;
+background-color:#cccccc;
+}
+
 .topMenu{
 float: left;
 width:100%;
 height: 50px;
+
 }
 .oneButton {
 float:left;
 width: 18%;
 height: 35px;
 margin-top: 10px;
-background-color:#800000;
+background-color:#6495ED;
 cursor:pointer;
-color: white;
+color: 	#D3D3D3;
 text-align:center;
-padding-top:2px;
+padding-top:1px;
 font-size:24px;
 box-sizing:border-box;
 border: 1px solid white;
 	border-collapse: collapse;
 	border-spacing:10px;
-	border-color: white;
+	border-color: 	#D3D3D3;
 	margin-bottom: 10px;
+	padding-bottom:4px;
+
 	
 	
 }
@@ -27,5 +35,49 @@ border: 1px solid white;
 float:left;
 width: 28%;
 margin-top: 10px;
+}
+.continents{
+	
+	opacity: 0.5;
+	background-color:#EAEAEA;
+	height:100%;
+	width:100%;
+	float: center;
+	border-radius:17px;
+
+}
+.border{
+	border: 1px solid white;
+	border-collapse: collapse;
+	border-spacing:0px;
+	border-color: black;
+	border-radius:20px;
+	border-width:5px;
+	height:220px;
+	width:20%;
+	margin:5%;
+	margin-top: 3%;
+	float: right;
+}
+#europe{
+	margin-right:10%;
+}
+#southAmerica{
+	margin-right:10%;
+}
+#row1{
+	float:right;
+	width:100%;
 	
 }
+#row2{
+	float:right;
+	width:100%;
+}
+
+
+
+
+
+
+
