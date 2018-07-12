@@ -5,6 +5,14 @@ var dx = 2;
 var dy = 4;
 var WIDTH;
 var HEIGHT;
+var bricks;
+var NROWS;
+var NCOLS;
+var BRICKWIDTH;
+var BRICKHEIGHT;
+var PADDING;
+
+
 
 rightDown = false;
 leftDown = false;
@@ -59,6 +67,28 @@ function draw(){
 	  else if (leftDown) paddlex -= 5;
 	  rect(paddlex, HEIGHT-paddleh, paddlew, paddleh);
 	  
+	  //draw bricks
+	  for (i=0; i < NROWS; i++) {
+		for (j=0; j < NCOLS; j++) {
+		  if (bricks[i][j] == 1) {
+			rect((j * (BRICKWIDTH + PADDING)) + PADDING, 
+				 (i * (BRICKHEIGHT + PADDING)) + PADDING,
+				 BRICKWIDTH, BRICKHEIGHT);
+		  }
+		}
+	  }
+	  
+	  //have we hit a brick?
+	  rowheight = BRICKHEIGHT + PADDING;
+	  colwidth = BRICKWIDTH + PADDING;
+	  row = Math.floor(y/rowheight);
+	  col = Math.floor(x/colwidth);
+	  //if so, reverse the ball and mark the brick as broken
+	  if (y < NROWS * rowheight && row >= 0 && col >= 0 && bricks[row][col] == 1) {
+		dy = -dy;
+		bricks[row][col] = 0;
+	  }
+	  
 	  if (x + dx > WIDTH || x + dx < 0)
 		dx = -dx;
 	  if (y + dy < 0)
@@ -74,6 +104,22 @@ function draw(){
 	  
 	  x += dx;
 	  y += dy;
+}
+
+function init_bricks() {
+  NROWS = 5;
+  NCOLS = 5;
+  BRICKWIDTH = (WIDTH/NCOLS) - 1;
+  BRICKHEIGHT = 15;
+  PADDING = 1;
+
+  bricks = new Array(NROWS);
+  for (i=0; i < NROWS; i++) {
+    bricks[i] = new Array(NCOLS);
+    for (j=0; j < NCOLS; j++) {
+      bricks[i][j] = 1;
+    }
+  }
 }
 
 function init_mouse() {
@@ -93,5 +139,5 @@ function init(){
 	ctx = c.getContext("2d");
 	WIDTH = $("#canvas").width();
 	HEIGHT = $("#canvas").height();
-	setInterval(draw, 10);
+	setInterval(draw, 100);
 }
