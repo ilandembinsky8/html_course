@@ -11,6 +11,7 @@ var NCOLS;
 var BRICKWIDTH;
 var BRICKHEIGHT;
 var PADDING;
+var imageObj;
 
 
 
@@ -32,10 +33,11 @@ function clear() {
 }
 
 function circle(x,y,radius){
-	  ctx.beginPath();
-	  ctx.arc(x, y, radius, 0, Math.PI*2, true); 
-	  ctx.closePath();
-	  ctx.fill();
+	  //ctx.beginPath();
+	  //ctx.arc(x, y, radius, 0, Math.PI*2, true); 
+	  //ctx.closePath();
+	  //ctx.fill();
+	  ctx.drawImage(imageObj, x, y);
 }
 
 //set rightDown or leftDown if the right or left keys are down
@@ -70,7 +72,9 @@ function draw(){
 	  //draw bricks
 	  for (i=0; i < NROWS; i++) {
 		for (j=0; j < NCOLS; j++) {
-		  if (bricks[i][j] == 1) {
+		  if (bricks[i][j] > 0) {
+			if (bricks[i][j] > 2) ctx.fillStyle="green";
+			if (bricks[i][j] == 1) ctx.fillStyle="red";
 			rect((j * (BRICKWIDTH + PADDING)) + PADDING, 
 				 (i * (BRICKHEIGHT + PADDING)) + PADDING,
 				 BRICKWIDTH, BRICKHEIGHT);
@@ -84,10 +88,16 @@ function draw(){
 	  row = Math.floor(y/rowheight);
 	  col = Math.floor(x/colwidth);
 	  //if so, reverse the ball and mark the brick as broken
-	  if (y < NROWS * rowheight && row >= 0 && col >= 0 && bricks[row][col] == 1) {
-		dy = -dy;
-		bricks[row][col] = 0;
+	  if (y < NROWS * rowheight && row >= 0 && col >= 0 && bricks[row][col] > 0) {
+		if (bricks[row][col]>1){
+			bricks[row][col]--;
+		}
+		else{
+			dy = -dy;
+			bricks[row][col] = 0;
+		}
 	  }
+	  
 	  
 	  if (x + dx > WIDTH || x + dx < 0)
 		dx = -dx;
@@ -117,7 +127,7 @@ function init_bricks() {
   for (i=0; i < NROWS; i++) {
     bricks[i] = new Array(NCOLS);
     for (j=0; j < NCOLS; j++) {
-      bricks[i][j] = 1;
+      bricks[i][j] = 8;
     }
   }
 }
@@ -139,5 +149,12 @@ function init(){
 	ctx = c.getContext("2d");
 	WIDTH = $("#canvas").width();
 	HEIGHT = $("#canvas").height();
+	imageObj = new Image();
+	imageObj.onload = function() {
+	
+	};
+	imageObj.src = 'tennis.jpg';
+      
 	setInterval(draw, 100);
+	
 }
