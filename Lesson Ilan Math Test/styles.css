@@ -1,0 +1,22 @@
+body{
+	margin:0px;
+	padding:0px;
+	font-family:tahoma;
+}
+#par3{
+	border:0px;
+	background-color:#EAEAEA;
+	border-radius:8px;
+	height:35px;
+}
+#btn{
+	float:left;
+	width:100px;
+	height:35px;
+	background-color:green;
+	color:white;
+	text-align:center;
+	padding-top:4px;
+	box-sizing:border-box;
+	cursor:pointer;
+}
