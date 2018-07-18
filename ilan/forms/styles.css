@@ -4,3 +4,16 @@ body{
 	font-family:tahoma;
 }
 
+.oneLine{
+	float:left;
+	width:100%;
+	margin-bottom:10px
+}
+
+input.result, select.result{
+	border:0px;
+	background-color:#EAEAEA;
+	border-radius:8px;
+	height:35px
+}
+
