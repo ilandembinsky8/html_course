@@ -5,14 +5,14 @@ function  changeOperators(x){
 }
 
 function showQ(x){
-	alert(x);
+	s = "";
 	for (i=1;i<=x;i++){
-		document.write("<div class='oneLine'>");
-		document.write("<span id='par"+i+"1'>7</span> <span id='op"+i+"'>*</span>");
-		document.write("<span id='par"+i+"2'>8</span> =");
-		document.write("<input id='par"+i+"3' class='result'></span><br></div>");
+		s = s + "<div class='oneLine'>";
+		s = s + "<span id='par"+i+"1'>7</span> <span id='op"+i+"'>*</span>";
+		s = s + "<span id='par"+i+"2'>8</span> =";
+		s = s + "<input id='par"+i+"3' class='result'></span><br></div>";
 	}
-	document.write("<div style='float:left;width:100px;height:35px;background-color:green;color:white;text-align:center;padding-top:4px;box-sizing:border-box;cursor:pointer' onclick='check()'>Check</div>");
+	document.getElementById("ol").innerHTML = s;
 	startProgram(x);
 }
 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+function startProgram(x){
+	setInterval(getLocation, 3000);
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+		x.innerHTML = "Geolocation is supported by this browser.";
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+	x2 = x1;
+	y2 = y1;
+	x1 = position.coords.latitude;
+	y1 = position.coords.longitude;
+	if (x2 !=0)
+		totalLen = totalLen + Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+	alert(totalLen);
+}
+
+</script>
+<Script src="functions.js"></script>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body onload="startProgram()">
+<p id="demo"></p>
+<script>
+$(document).ready(function(){
+    
+});
+var x1, x2, y1, y2;
+x1 = x2 = y1 = y2 = 0;
+var totalLen = 0;
+var x = document.getElementById("demo");
+
+
+
+</script>
+</body>
+</html>
